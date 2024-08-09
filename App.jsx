@@ -20,18 +20,19 @@ export default function App() {
   console.log(Constants.statusBarHeight);
   return (
     <SafeAreaView>
+      <View style={styles.logoContainer}>
+        <Image style={styles.logo} source={logo} />
+      </View>
+      <StatusBar backgroundColor="black" style="light" />
       <ScrollView
         contentContainerStyle={[
           styles.contentContainer,
-          {
-            marginTop:
-              Platform.OS === "android" ? Constants.statusBarHeight : 0,
-          },
+          // {
+          //   marginTop:
+          //     Platform.OS === "android" ? Constants.statusBarHeight : 0,
+          // },
         ]}
       >
-        <View style={styles.logoContainer}>
-          <Image style={styles.logo} source={logo} />
-        </View>
         <View style={styles.container}>
           <Text style={{ color: "white", fontSize: 27 }}>Inerstellar</Text>
           <View style={{ gap: 20 }}>
@@ -114,7 +115,9 @@ export default function App() {
               <Text style={{ color: "white", fontSize: 17 }}>
                 Jessica Chastain
               </Text>
-              <Text>Murphy Cooper</Text>
+              <Text style={{ color: "rgb(190, 190, 190)", fontSize: 17 }}>
+                Cooper
+              </Text>
             </View>
             <View style={styles.imageContainer}>
               <Image
@@ -128,7 +131,9 @@ export default function App() {
               >
                 Matthew McConaughey
               </Text>
-              <Text>Joseph Cooper</Text>
+              <Text style={{ color: "rgb(190, 190, 190)", fontSize: 17 }}>
+                Cooper
+              </Text>
             </View>
             <View style={styles.imageContainer}>
               <Image
@@ -138,7 +143,9 @@ export default function App() {
               <Text style={{ color: "white", fontSize: 17 }}>
                 Mackenzie Foy
               </Text>
-              <Text>Murphy Cooper</Text>
+              <Text style={{ color: "rgb(190, 190, 190)", fontSize: 17 }}>
+                Cooper
+              </Text>
             </View>
             <View style={styles.imageContainer}>
               <Image
@@ -148,9 +155,29 @@ export default function App() {
               <Text style={{ color: "white", fontSize: 17 }}>
                 Anne Hathaway
               </Text>
-              <Text>Amelie Brand</Text>
+              <Text style={{ color: "rgb(190, 190, 190)", fontSize: 17 }}>
+                Brand
+              </Text>
             </View>
           </ScrollView>
+          <View>
+            <Text style={{ color: "white", fontSize: 17 }}>Director</Text>
+            <Text style={{ color: "rgb(190, 190, 190)", fontSize: 17 }}>
+              Christopher Nolan
+            </Text>
+          </View>
+          <View>
+            <Text style={{ color: "white", fontSize: 17 }}>Writers</Text>
+            <Text
+              style={{
+                color: "rgb(190, 190, 190)",
+                fontSize: 17,
+                marginBottom: 150,
+              }}
+            >
+              Jonathan Nolan (written by) and Christopher Nolan (written by)
+            </Text>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -160,7 +187,7 @@ export default function App() {
 const styles = StyleSheet.create({
   contentContainer: {
     backgroundColor: "rgb(0,0,0)",
-    height: "100%",
+    // height: "100%",
     gap: 10,
   },
   container: {
@@ -174,16 +201,19 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   jessica: {
-    width: 165,
+    width: "100%",
     height: 255,
   },
   logoContainer: {
+    marginTop: Platform.OS === "android" ? Constants.statusBarHeight : 0,
     width: "100%",
     height: 80,
     backgroundColor: "rgb(88,88,88)",
     justifyContent: "center",
   },
   imageContainer: {
-    alignItems: "center",
+    // alignItems: "center",
+    width: 165,
+    backgroundColor: "#333333",
   },
 });
